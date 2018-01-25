@@ -1,7 +1,43 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+// const allStudyLogQuery = (skip = 0, limit = 20) => `
+// {
+//   allContentfulStudylog(
+//     skip: ${skip},
+//     limit: ${limit},
+//     sort: {
+//       fields: [updatedAt],
+//       order: DESC
+//     }
+//   ) {
+//     edges	{
+//        node {
+//         id,
+//         url,
+//         studied,
+//         createdAt,
+//         updatedAt
+//       },
+//       previous {
+//         id
+//       },
+//       next {
+//         id
+//       }
+//     }
+//   }
+// }
+// `;
 
- // You can delete this file if you're not using it
+// exports.createPages = ({ graphql, boundActionCreators }) => {
+//   const { createPage } = boundActionCreators;
+
+//   return new Promise((resolve, reject) => {
+//     graphql(allStudyLogQuery(0, 10))
+//       .then(result => {
+//         if (result.errors) {
+//           reject(result.errors)
+//         }
+
+
+//       });
+//   });
+// };

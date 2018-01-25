@@ -4,7 +4,7 @@ require('dotenv-safe').load({
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: '@LucaColonnello',
   },
   plugins: [
     {
