@@ -23,6 +23,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.10.2"
+    "crypto": "^1.0.1",
+    "prettier": "^1.10.2",
+    "request-promise-native": "^1.0.5"
   }
 }
