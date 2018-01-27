@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import './index.css'
 
 const TemplateWrapper = ({ children, data }) => (
-  <div>
+  <main>
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
@@ -25,7 +25,7 @@ const TemplateWrapper = ({ children, data }) => (
     >
       {children()}
     </div>
-  </div>
+  </main>
 )
 
 TemplateWrapper.propTypes = {

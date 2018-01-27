@@ -4,8 +4,9 @@ import Link from 'gatsby-link'
 const Header = () => (
   <div
     style={{
-      background: 'rebeccapurple',
+      background: '#0d5f51',
       marginBottom: '1.45rem',
+      borderBottom: '4px solid #69afa3'
     }}
   >
     <div
@@ -23,7 +24,7 @@ const Header = () => (
             textDecoration: 'none',
           }}
         >
-          Gatsby
+          @LucaColonnello
         </Link>
       </h1>
     </div>
