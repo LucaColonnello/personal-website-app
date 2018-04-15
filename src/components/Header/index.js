@@ -1,34 +1,46 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
+
+import './style.scss';
 
 const Header = () => (
-  <div
-    style={{
-      background: '#0d5f51',
-      marginBottom: '1.45rem',
-      borderBottom: '4px solid #69afa3'
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+  <header className="header">
+
+    <div className="container">
+      <div className="header__title">
+        <h1 className="title title--bordered">
+          Luca Colonnello
+        </h1>
+      </div>
+
+      <p className="header__text">
+        <span className="label label--red">Full Stack Dev</span> ~&nbsp;
+        <span className="label label--blue">JS</span>&nbsp;
+        <span className="label label--blue">React.js</span>&nbsp;
+        <span className="label label--blue">Redux</span>&nbsp;
+        <span className="label label--blue">GraphQL</span>&nbsp;
+        <span className="label label--blue">Node.js</span>
+      </p>
+
+      <nav className="main-nav">
         <Link
           to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
+          className="main-nav__link"
+          activeClassName="main-nav__link--active"
         >
-          @LucaColonnello
+          study log
         </Link>
-      </h1>
-    </div>
-  </div>
-)
 
-export default Header
+        <a
+          className="main-nav__link"
+          href="https://uk.linkedin.com/in/luca-colonnello-77454526"
+          target="_blank"
+        >
+          @me
+        </a>
+      </nav>
+    </div>
+  </header>
+);
+
+export default Header;

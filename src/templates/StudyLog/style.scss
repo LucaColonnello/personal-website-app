@@ -1,0 +1,23 @@
+@import "../../stylesheets/_base";
+
+.studylog {}
+
+.studylog__top,
+.studylog__bottom {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.studylog__top {
+  padding-bottom: 10px;
+  border-bottom: 15px solid $blue;
+}
+
+.studylog__bottom {
+  padding-top: 10px;
+  border-top: 15px solid $blue;
+}
+
+.studylog__list {
+  margin: 50px 0;
+}

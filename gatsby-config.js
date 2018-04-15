@@ -2,11 +2,16 @@ require('dotenv-safe').load({
   allowEmptyValues: true
 });
 
+const autoprefixer = require('autoprefixer');
+
 module.exports = {
   siteMetadata: {
-    title: '@LucaColonnello',
+    title: 'Luca Colonnello - Full Stack Developer',
+    description: 'Luca Colonnello, Full Stack Developer using ES React.js Redux GraphQL and Node.js',
+    keywords: 'full stack developer, luca colonnello, javascript, study log'
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-contentful',
       options: {
@@ -14,6 +19,13 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       }
     },
-    'gatsby-plugin-react-helmet'
+    {
+      resolve: `gatsby-plugin-postcss-sass`,
+      options: {
+        postCssPlugins: [
+          autoprefixer(),
+        ]
+      },
+    },
   ],
 };

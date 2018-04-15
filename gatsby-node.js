@@ -69,42 +69,38 @@ function forEachPage(dataSet = [], handler = () => {}) {
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
 
-  return new Promise((resolve, reject) => (
-    graphql(allStudyLogQuery())
-      .then(({
-        errors,
-        data
-      }) => {
-        if (errors) {
-          reject(errors)
-        }
+  return graphql(allStudyLogQuery())
+    .then(({
+      errors,
+      data
+    }) => {
+      if (errors) {
+        throw errors;
+      }
 
-        const studyLogTemplate = path.resolve(`./src/templates/study-log.js`)
+      const studyLogTemplate = path.resolve(`./src/templates/StudyLog/index.js`)
 
-        console.log(`⚡️  Creating ${data.allContentfulStudylog.edges.length} page`);
+      console.log(`⚡️  Creating ${data.allContentfulStudylog.edges.length} page`);
 
-        forEachPage(data.allContentfulStudylog.edges, (items, page) => {
-          const pagePath = page === 1 ? '/' : `/${page}`;
-          const skip = itemsPerPage * (page - 1);
-          const limit = itemsPerPage;
+      forEachPage(data.allContentfulStudylog.edges, (items, page) => {
+        const pagePath = page === 1 ? '/' : `/${page}`;
+        const skip = itemsPerPage * (page - 1);
+        const limit = itemsPerPage;
 
-          console.log(`⚡️  --- Creating page ${page   // ↩︎
-          } with path '${pagePath}', skip ${skip} and limit ${limit}`);
+        console.log(`⚡️  --- Creating page ${page   // ↩︎
+        } with path '${pagePath}', skip ${skip} and limit ${limit}`);
 
-          createPage({
-            path: pagePath,
-            component: slash(studyLogTemplate),
-            context: {
-              skip,
-              limit,
-              page
-            },
-          });
+        createPage({
+          path: pagePath,
+          component: slash(studyLogTemplate),
+          context: {
+            skip,
+            limit,
+            page
+          },
         });
-
-        resolve();
-      })
-  ));
+      });
+    });
 };
 
 exports.onCreateNode = async ({ node, boundActionCreators, getNode }) => {

@@ -36,7 +36,13 @@ const StudyLogCard = ({ node }) => {
         <a href={url}>{title}</a>
       </h3>
 
-      <img src={imageSrc} width="100%" />
+      {imageSrc && (
+        <img
+          src={`http://images.weserv.nl/?url=${
+            imageSrc.replace(/https?\:\/\//g, '')
+          }&w=300&h=300&t=square&a=center`}
+        />
+      )}
 
       <p>{description}</p>
 
